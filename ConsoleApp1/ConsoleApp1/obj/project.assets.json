@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Environement_Programation\\repo_example\\CalculatriceCSharp\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-      "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Environement_Programation\\repo_example\\CalculatriceCSharp\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Environement_Programation\\repo_example\\CalculatriceCSharp\\ConsoleApp1\\ConsoleApp1\\app.csproj",
+      "projectName": "app",
+      "projectPath": "C:\\Environement_Programation\\repo_example\\CalculatriceCSharp\\ConsoleApp1\\ConsoleApp1\\app.csproj",
       "packagesPath": "C:\\Users\\Utilisateur\\.nuget\\packages\\",
       "outputPath": "C:\\Environement_Programation\\repo_example\\CalculatriceCSharp\\ConsoleApp1\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",

@@ -13,57 +13,133 @@ bool IsDigit(char character)
     int characterAsciiFormat = Convert.ToInt32(character);
     return character >= 47 && character <= 57;
 }
-bool IsOperator(char character)
+bool IsOperator(string character)
 {
-    List<char> operator_list = ['*','/','-','+','%'];
+    List<string> operator_list = ["*","/","-","+","%"];
     return operator_list.Contains(character);
 }
-List<string?> SegmentatorStringMathematique(string? inputUser = null)
+double NumberStrictInput()
 {
-    List<string> inputUserList = new List<string>();
-    List<char> inputChar = inputUser.ToList();
-    int lenInput = inputChar.Count();
-    string tempConstruct = "";
-    if (inputChar != null && inputUser.Count() > 0)
+    double result = 0;
+    do
     {
-        if (IsDigit(inputChar[0]))
+        try
         {
-            // Start Calcul
-            for (int i = 0; i < lenInput; i++)
-            {
-                if (IsDigit(inputChar[i]))
-                {
-                    tempConstruct = "";
-                    for (; i < lenInput; i++)
-                        if (IsDigit(inputChar[i]) || inputChar[i] == ',')
-                        {
-                            tempConstruct += $"{inputChar[i]}";
-                        }
-                        else if (inputChar[i] == '.')
-                        {
-                            Console.WriteLine("utiliser plutôt ',' que '.'");
-                        }
-                        else
-                            break;
-                    inputUserList.Add(tempConstruct);
-                    i--;
-                }
-                else if(IsOperator(inputChar[i]))
-                    inputUserList.Add($"{inputChar[i]}");
-            }
-
+            result = double.Parse(InputUser("Entre un nombre"));
+            break;
         }
-        else
+        catch (Exception)
         {
-            // Message Erreur
+            Console.WriteLine("Pas Content");
         }
-        
-
-    }
-        
-    return inputUserList;
+    }while(true);
+    return result;
 }
-string input = InputUser();
-List<string> inputUserList = SegmentatorStringMathematique(input);
-foreach(string user in inputUserList)
-    Console.WriteLine(user);
+string OperatorStrictInput(string? input = null)
+{
+    string result;
+
+    do
+    {
+        result = InputUser("Saisie un opérateur: ");
+            if(IsOperator(result))
+            { 
+                return result;
+            }
+            else
+            {
+                Console.WriteLine("Ceci n'est pas un opérateur reconnu");
+                continue;
+            }
+        
+    } while (true);
+}
+double? CalculateNumber(double? nombre1, double? nombre2, string? op)
+{
+    switch(op)
+    {
+        case "*":
+            return nombre1 * nombre2;
+        case "/":
+            return nombre1 / nombre2;
+        case "-":
+            return nombre1 - nombre2;
+        case "+":
+            return nombre1 + nombre2;
+        case "%":
+            return nombre1 % nombre2;
+        default:
+            return null;
+    }
+}
+
+bool IsRequestClear(string? request)
+{ return request == "reset" || request == "clear"; }
+void UserCalculatriceDirective()
+{
+    double? nombre1 = null;
+    string? operators = null;
+    double? nombre2 = null;
+    double? resulat = null;
+    string? input = null;
+    do
+    {
+        
+        if (IsRequestClear(input))
+        {
+            nombre1 = null;
+            operators = null;
+            nombre2 = null;
+            resulat = null;
+            input = null;
+        }
+        if (nombre1 == null)
+        {
+            Console.WriteLine("Renseigne un nombre");
+            input = Console.ReadLine();
+            if (IsRequestClear(input))
+            {
+                Console.Clear();
+                Console.WriteLine("La purge  à commencer ...");
+                continue;
+            }
+            try
+            {
+                nombre1 = double.Parse(input);
+            }
+            catch
+            {
+                Console.WriteLine("Ceci  doit être un nombre");
+                continue;
+            }
+        }
+        if (operators == null)
+        { operators = OperatorStrictInput(); }
+        if (nombre2 == null)
+        {
+            Console.WriteLine("Renseigne un nombre");
+            input = Console.ReadLine();
+            if (IsRequestClear(input))
+            {
+                Console.Clear();
+                Console.WriteLine("La purge  à commencer ...");
+                continue;
+            }
+            try
+            {
+                nombre2 = double.Parse(input);
+            }
+            catch
+            {
+                Console.WriteLine("Ceci  doit être un nombre");
+                continue;
+            }
+        }
+        resulat = CalculateNumber(nombre1,nombre2, operators);
+        Console.WriteLine($"Voici le résultat : {resulat}");
+        operators = null;
+        nombre1 = resulat;
+        nombre2 = null;
+    } while (true);
+}
+UserCalculatriceDirective();

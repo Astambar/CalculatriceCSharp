@@ -1,0 +1,15 @@
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\app.exe
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\app.deps.json
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\app.runtimeconfig.json
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\app.dll
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\app.pdb
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.AssemblyInfoInputs.cache
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.AssemblyInfo.cs
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.csproj.CoreCompileInputs.cache
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.sourcelink.json
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.dll
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\refint\app.dll
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.pdb
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\app.genruntimeconfig.cache
+C:\Environement_Programation\repo_example\CalculatriceCSharp\ConsoleApp1\ConsoleApp1\obj\Debug\net8.0\ref\app.dll
