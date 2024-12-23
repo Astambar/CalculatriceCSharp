@@ -8,55 +8,30 @@ string? InputUser(string message = "Default Message")
     return Console.ReadLine();
 }
 
-bool IsDigit(char character)
-{
-    int characterAsciiFormat = Convert.ToInt32(character);
-    return character >= 47 && character <= 57;
-}
 bool IsOperator(string character)
 {
-    List<string> operator_list = ["*","/","-","+","%"];
+    List<string> operator_list = new List<string> { "*", "/", "-", "+", "%" };
     return operator_list.Contains(character);
 }
-double NumberStrictInput()
-{
-    double result = 0;
-    do
-    {
-        try
-        {
-            result = double.Parse(InputUser("Entre un nombre"));
-            break;
-        }
-        catch (Exception)
-        {
-            Console.WriteLine("Pas Content");
-        }
-    }while(true);
-    return result;
-}
-string OperatorStrictInput(string? input = null)
-{
-    string result;
 
-    do
+
+string? OperatorStrictInput(string? input = null)
+{
+
+    if (IsOperator(input))
     {
-        result = InputUser("Saisie un opérateur: ");
-            if(IsOperator(result))
-            { 
-                return result;
-            }
-            else
-            {
-                Console.WriteLine("Ceci n'est pas un opérateur reconnu");
-                continue;
-            }
-        
-    } while (true);
+        return input;
+    }
+    else
+    {
+        Console.WriteLine("Ceci n'est pas un opérateur reconnu");
+        return null;
+    }
 }
+
 double? CalculateNumber(double? nombre1, double? nombre2, string? op)
 {
-    switch(op)
+    switch (op)
     {
         case "*":
             return nombre1 * nombre2;
@@ -74,7 +49,10 @@ double? CalculateNumber(double? nombre1, double? nombre2, string? op)
 }
 
 bool IsRequestClear(string? request)
-{ return request == "reset" || request == "clear"; }
+{
+    return request == "reset" || request == "clear";
+}
+
 void UserCalculatriceDirective()
 {
     double? nombre1 = null;
@@ -82,17 +60,21 @@ void UserCalculatriceDirective()
     double? nombre2 = null;
     double? resulat = null;
     string? input = null;
+
     do
     {
-        
         if (IsRequestClear(input))
         {
+            Console.Clear();
+            Console.WriteLine("La purge a commencé ...");
             nombre1 = null;
             operators = null;
             nombre2 = null;
             resulat = null;
             input = null;
+            continue;
         }
+
         if (nombre1 == null)
         {
             Console.WriteLine("Renseigne un nombre");
@@ -100,7 +82,7 @@ void UserCalculatriceDirective()
             if (IsRequestClear(input))
             {
                 Console.Clear();
-                Console.WriteLine("La purge  à commencer ...");
+                Console.WriteLine("La purge a commencé ...");
                 continue;
             }
             try
@@ -109,12 +91,33 @@ void UserCalculatriceDirective()
             }
             catch
             {
-                Console.WriteLine("Ceci  doit être un nombre");
+                Console.WriteLine("Ceci doit être un nombre");
                 continue;
             }
         }
+
         if (operators == null)
-        { operators = OperatorStrictInput(); }
+        {
+            Console.WriteLine("Renseigne un operateur");
+            input = Console.ReadLine();
+            if (IsRequestClear(input))
+            {
+                Console.Clear();
+                Console.WriteLine("La purge a commencé ...");
+                continue;
+            }
+            else if (IsOperator(input))
+            {
+            operators = OperatorStrictInput(input);
+            }
+            else
+            {
+                Console.WriteLine("Ceci n'est pas un opérateur ");
+                continue;
+            }
+
+        }
+
         if (nombre2 == null)
         {
             Console.WriteLine("Renseigne un nombre");
@@ -122,7 +125,7 @@ void UserCalculatriceDirective()
             if (IsRequestClear(input))
             {
                 Console.Clear();
-                Console.WriteLine("La purge  à commencer ...");
+                Console.WriteLine("La purge a commencé ...");
                 continue;
             }
             try
@@ -131,15 +134,18 @@ void UserCalculatriceDirective()
             }
             catch
             {
-                Console.WriteLine("Ceci  doit être un nombre");
+                Console.WriteLine("Ceci doit être un nombre");
                 continue;
             }
         }
-        resulat = CalculateNumber(nombre1,nombre2, operators);
+
+        resulat = CalculateNumber(nombre1, nombre2, operators);
         Console.WriteLine($"Voici le résultat : {resulat}");
         operators = null;
         nombre1 = resulat;
         nombre2 = null;
+
     } while (true);
 }
+
 UserCalculatriceDirective();
